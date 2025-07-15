@@ -1,12 +1,40 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Text colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --text-error: #e74c3c;
+  
+  /* Border colors */
+  --border-primary: #ccc;
+  --border-focus: #007acc;
+  --border-error: #e74c3c;
+  --border-form: #e1e5e9;
+  
+  /* Background colors */
+  --bg-button-primary: #007acc;
+  --bg-button-primary-hover: #005fa3;
+  --bg-button-disabled: #ccc;
+  --bg-form: #ffffff;
+  --bg-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Button text colors */
+  --text-button-primary: #ffffff;
+  --text-button-disabled: #666;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    
+    /* Dark mode colors */
+    --text-primary-dark: #ffffff;
+    --text-secondary-dark: #cccccc;
+    --border-form-dark: #333;
+    --bg-form-dark: #1a1a1a;
   }
 }
 

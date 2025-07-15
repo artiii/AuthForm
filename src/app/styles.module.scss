@@ -6,25 +6,11 @@
 
 .pageTitle {
   margin-bottom: 20px;
+  color: var(--text-primary);
 }
 
-.authSection {
-  margin: 20px 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.authTitle {
-  margin-bottom: 15px;
-}
-
-.formField {
-  margin: 10px 0;
-}
-
-.buttonGroup {
-  margin: 10px 0;
-  display: flex;
-  gap: 10px;
+@media (prefers-color-scheme: dark) {
+  .pageTitle {
+    color: var(--text-primary-dark);
+  }
 } 

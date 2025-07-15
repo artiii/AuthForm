@@ -7,23 +7,23 @@
   transition: background-color 0.2s;
 
   &:disabled {
-    background-color: #ccc;
-    color: #666;
+    background-color: var(--bg-button-disabled);
+    color: var(--text-button-disabled);
     cursor: not-allowed;
   }
 }
 
 .buttonPrimary {
-  background-color: #007acc;
-  color: white;
+  background-color: var(--bg-button-primary);
+  color: var(--text-button-primary);
 
   &:hover:not(:disabled) {
-    background-color: #005fa3;
+    background-color: var(--bg-button-primary-hover);
   }
 }
 
 .buttonDisabled {
-  background-color: #ccc;
-  color: #666;
+  background-color: var(--bg-button-disabled);
+  color: var(--text-button-disabled);
   cursor: not-allowed;
 } 

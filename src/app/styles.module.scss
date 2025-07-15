@@ -1,0 +1,30 @@
+.pageContainer {
+  padding: 40px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  margin-bottom: 20px;
+}
+
+.authSection {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.authTitle {
+  margin-bottom: 15px;
+}
+
+.formField {
+  margin: 10px 0;
+}
+
+.buttonGroup {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+} 

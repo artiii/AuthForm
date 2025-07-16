@@ -2,6 +2,8 @@
 
 import { useAuth } from "@/shared/model/auth";
 import { Button } from "@/shared/ui/button";
+import { ButtonVariant } from "@/shared/model/ui";
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 export default function Home() {
@@ -32,10 +34,16 @@ export default function Home() {
         )}
       </div>
 
+      <div className={styles.navigationSection}>
+        <Link href="/dashboard" className={styles.navLink}>
+          Go to Dashboard →
+        </Link>
+      </div>
+
       <div className={styles.actionSection}>
         <Button
           onClick={handleLogout}
-          variant="primary"
+          variant={ButtonVariant.PRIMARY}
           className={styles.logoutButton}
         >
           Logout

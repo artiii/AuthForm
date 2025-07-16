@@ -1,0 +1,132 @@
+.dashboardContainer {
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-primary);
+  margin-bottom: 40px;
+}
+
+.title {
+  color: var(--text-primary);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.userSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userEmail {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.logoutButton {
+  min-width: 100px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.welcomeCard {
+  background: var(--bg-form);
+  border: 1px solid var(--border-form);
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 2px 8px var(--bg-shadow);
+}
+
+.cardTitle {
+  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.cardDescription {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+}
+
+.navLink {
+  color: var(--bg-button-primary);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: rgba(0, 122, 204, 0.1);
+}
+
+@media (max-width: 768px) {
+  .dashboardContainer {
+    padding: 15px;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .userSection {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .welcomeCard {
+    padding: 24px;
+  }
+  
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .title {
+    color: var(--text-primary-dark);
+  }
+  
+  .userEmail {
+    color: var(--text-secondary-dark);
+  }
+  
+  .welcomeCard {
+    background: var(--bg-form-dark);
+    border-color: var(--border-form-dark);
+  }
+  
+  .cardTitle {
+    color: var(--text-primary-dark);
+  }
+  
+  .cardDescription {
+    color: var(--text-secondary-dark);
+  }
+} 

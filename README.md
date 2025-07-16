@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Auth Form App
 
-## Getting Started
+A simple authentication app built with Next.js and protected routes. Created to demonstrate modern auth patterns in React applications.
 
-First, run the development server:
+## Requirements
 
+- **Node.js**: 18.17+ or newer
+- **npm**: 8.0+ or yarn/pnpm
+
+## Tech Stack
+
+- **Next.js 15** with App Router and Turbopack
+- **React 19** with hooks
+- **TypeScript** for type safety
+- **Supabase** for authentication
+- **SCSS Modules** for styling
+- **React Hook Form** + **Zod** for form validation
+- **Feature-Sliced Design** architecture
+
+## Features
+
+- User login with email/password
+- Route protection from unauthorized users
+- Automatic redirects (to login/home)
+- Logout with session cleanup
+- Responsive design with dark theme support
+
+## Quick Start
+
+1. Clone and install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Setup Supabase:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   Use existed credentials:
+   - Create `.env.local` from `.env.example`
+   - Fill in the variables from your project settings:
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the dev server:
+```bash
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) - if you're not authenticated, it'll redirect you to login.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Uses Feature-Sliced Design for scalability:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── login/             # Login page
+│   ├── dashboard/         # Protected page
+│   └── globals.css        # CSS variables
+├── features/
+│   └── auth/              # Authentication feature
+│       ├── model/         # Business logic (hooks)
+│       └── ui/            # UI components
+├── shared/
+│   ├── lib/               # Supabase client
+│   ├── model/             # Shared types and enums
+│   └── ui/                # Reusable components
+```
 
-## Deploy on Vercel
+## Under the Hood
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Authentication
+- `useAuth` hook tracks user state
+- `AuthGuard` component protects routes
+- Supabase Auth for backend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Validation
+- Zod schemas with trim/toLowerCase
+- Password validation for letters+numbers
+- React Hook Form for convenience
+
+### Styling
+- CSS variables for theming
+- SCSS Modules with camelCase
+- clsx for conditional classes
+
+## Creating a Test User
+
+### Ready-to-use test account (**Recommended**):
+- **Email:** test@example.com
+- **Password:** password123
+
+### Or create your own (Needs credentials for Supabase):
+In your Supabase dashboard:
+1. Authentication → Users → Add User
+
+## Useful Commands
+
+```bash
+npm run dev          # Run with Turbopack
+npm run build        # Production build
+npm run lint         # ESLint check
+```
+
+## License
+
+MIT

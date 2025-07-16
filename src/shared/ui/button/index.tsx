@@ -1,27 +1,28 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 import clsx from 'clsx'
+import { ButtonVariant } from '../../model/ui'
 import styles from './styles.module.scss'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'disabled'
+  variant?: ButtonVariant
   children: ReactNode
 }
 
 export const Button = ({
-  variant = 'primary',
+  variant = ButtonVariant.PRIMARY,
   children,
   className = '',
   disabled,
   ...props
 }: ButtonProps) => {
-  const isDisabled = disabled || variant === 'disabled'
+  const isDisabled = disabled || variant === ButtonVariant.DISABLED
 
   return (
     <button
       className={clsx(
         styles.button,
         {
-          [styles.buttonPrimary]: variant === 'primary',
+          [styles.buttonPrimary]: variant === ButtonVariant.PRIMARY,
           [styles.buttonDisabled]: isDisabled
         },
         className

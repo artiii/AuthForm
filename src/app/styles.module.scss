@@ -1,16 +1,77 @@
 .pageContainer {
   padding: 40px;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.loading {
+  color: var(--text-secondary);
+  font-size: 16px;
+  text-align: center;
+}
+
+.welcomeSection {
+  text-align: center;
 }
 
 .pageTitle {
   margin-bottom: 20px;
   color: var(--text-primary);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.userInfo {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0;
+}
+
+.userEmail {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.actionSection {
+  display: flex;
+  justify-content: center;
+}
+
+.logoutButton {
+  min-width: 120px;
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  .pageTitle {
+    font-size: 28px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   .pageTitle {
+    color: var(--text-primary-dark);
+  }
+  
+  .loading {
+    color: var(--text-secondary-dark);
+  }
+  
+  .userInfo {
+    color: var(--text-secondary-dark);
+  }
+  
+  .userEmail {
     color: var(--text-primary-dark);
   }
 } 

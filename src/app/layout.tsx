@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AuthGuard } from "@/shared/ui/auth-guard";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <AuthGuard fallback={<div className="loading-fallback">Loading...</div>}>
+          {children}
+        </AuthGuard>
       </body>
     </html>
   );

@@ -4,13 +4,14 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useCallback } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { supabase } from '@/shared/lib/supabaseClient'
 import { FormErrorType } from '@/shared/model/form/formErrorTypes'
 
 export const signInSchema = z.object({
   email: z
-      .email({ error: 'Email is required' })
+      .email({ error: 'Email is not correct' })
       .trim()
       .toLowerCase()
       .nonempty('Email is required')
@@ -27,8 +28,8 @@ export const signInSchema = z.object({
 
 export type SignInFormData = z.infer<typeof signInSchema>
 
-
 export const useSignIn = () => {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -52,9 +53,11 @@ export const useSignIn = () => {
         if (error) {
           setError('password', { type: FormErrorType.Server, message: error.message });
           setFocus('password');
+        } else {
+          router.push('/');
         }
       },
-      [isSubmitting, setError, setFocus]
+      [isSubmitting, setError, setFocus, router]
   );
 
   return {

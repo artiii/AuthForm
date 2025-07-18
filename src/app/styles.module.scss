@@ -24,7 +24,7 @@
   margin-bottom: 20px;
   color: var(--text-primary);
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .userInfo {
@@ -53,7 +53,7 @@
 }
 
 .navLink:hover {
-  background-color: rgba(0, 122, 204, 0.1);
+  background-color: var(--hover-overlay);
 }
 
 .actionSection {
@@ -70,26 +70,8 @@
     padding: 20px;
     gap: 30px;
   }
-  
+
   .pageTitle {
     font-size: 28px;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .pageTitle {
-    color: var(--text-primary-dark);
-  }
-  
-  .loading {
-    color: var(--text-secondary-dark);
-  }
-  
-  .userInfo {
-    color: var(--text-secondary-dark);
-  }
-  
-  .userEmail {
-    color: var(--text-primary-dark);
-  }
-} 

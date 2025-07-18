@@ -4,34 +4,12 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: var(--background);
+  background: var(--background);
 }
 
 .loginContent {
   width: 100%;
   max-width: 400px;
-  text-align: center;
 }
 
-.loginTitle {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--text-primary);
-}
-
-.loginSubtitle {
-  font-size: 16px;
-  color: var(--text-secondary);
-  margin-bottom: 32px;
-}
-
-@media (prefers-color-scheme: dark) {
-  .loginTitle {
-    color: var(--text-primary-dark);
-  }
-  
-  .loginSubtitle {
-    color: var(--text-secondary-dark);
-  }
-} 
+ 

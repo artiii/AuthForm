@@ -17,7 +17,7 @@
 .title {
   color: var(--text-primary);
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
 }
 
@@ -53,7 +53,7 @@
 .cardTitle {
   color: var(--text-primary);
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 16px;
 }
 
@@ -79,54 +79,31 @@
 }
 
 .navLink:hover {
-  background-color: rgba(0, 122, 204, 0.1);
+  background-color: var(--hover-overlay);
 }
 
 @media (max-width: 768px) {
   .dashboardContainer {
     padding: 15px;
   }
-  
+
   .header {
     flex-direction: column;
     gap: 15px;
     align-items: flex-start;
   }
-  
+
   .userSection {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
   }
-  
+
   .welcomeCard {
     padding: 24px;
   }
-  
+
   .title {
     font-size: 24px;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .title {
-    color: var(--text-primary-dark);
-  }
-  
-  .userEmail {
-    color: var(--text-secondary-dark);
-  }
-  
-  .welcomeCard {
-    background: var(--bg-form-dark);
-    border-color: var(--border-form-dark);
-  }
-  
-  .cardTitle {
-    color: var(--text-primary-dark);
-  }
-  
-  .cardDescription {
-    color: var(--text-secondary-dark);
-  }
-} 

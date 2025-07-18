@@ -1,42 +1,42 @@
-'use client'
+'use client';
 
-import { useEffect, ReactNode } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
-import { useAuth } from '../../model/auth'
+import { ReactNode, useEffect, useMemo } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import { useAuth } from '../../model/auth';
 
 interface AuthGuardProps {
-  children: ReactNode
-  fallback?: ReactNode
+  children: ReactNode;
+  fallback?: ReactNode;
 }
 
-const publicRoutes = ['/login']
+const PUBLIC_ROUTES = new Set(['/login']);
 
-export const AuthGuard: React.FC<AuthGuardProps> = ({
+export const AuthGuard = ({
   children,
-  fallback = <div>Loading...</div>
-}) => {
-  const { user, loading } = useAuth()
-  const router = useRouter()
-  const pathname = usePathname()
+  fallback = <div>Loading...</div>,
+}: AuthGuardProps) => {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const isPublicRoute = useMemo(() => PUBLIC_ROUTES.has(pathname), [pathname]);
 
   useEffect(() => {
-    if (!loading && !user && !publicRoutes.includes(pathname)) {
-      router.push('/login')
+    if (loading) return;
+
+    if (!user && !isPublicRoute) {
+      router.replace('/login');
+      return;
     }
-  }, [user, loading, router, pathname])
 
-  if (loading) {
-    return <>{fallback}</>
-  }
+    if (user && isPublicRoute) {
+      router.replace('/');
+    }
+  }, [loading, user, isPublicRoute, router]);
 
-  if (!user && !publicRoutes.includes(pathname)) {
-    return <>{fallback}</>
-  }
+  if (loading) return <>{fallback}</>;
 
-  if (user && pathname === '/login') {
-    router.push('/')
-    return <>{fallback}</>
-  }
+  if ((!user && !isPublicRoute) || (user && isPublicRoute)) return null;
 
-  return <>{children}</>
-}
+  return <>{children}</>;
+};

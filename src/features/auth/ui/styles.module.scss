@@ -10,9 +10,11 @@
   gap: 20px;
   padding: 32px;
   border: 1px solid var(--border-form);
-  border-radius: 8px;
-  background-color: var(--bg-form);
-  box-shadow: 0 2px 8px var(--bg-shadow);
+  border-radius: 16px;
+  background: var(--bg-form);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px var(--bg-shadow);
 }
 
 .authTitle {
@@ -32,14 +34,3 @@
   margin-top: 8px;
   font-weight: 500;
 }
-
-@media (prefers-color-scheme: dark) {
-  .authForm {
-    background-color: var(--bg-form-dark);
-    border-color: var(--border-form-dark);
-  }
-
-  .authTitle {
-    color: var(--text-primary-dark);
-  }
-} 

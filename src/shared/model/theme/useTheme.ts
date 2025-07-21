@@ -32,12 +32,12 @@ export const useTheme = (): UseThemeReturn => {
   }, [])
 
   const toggleTheme = useCallback(() => {
-    setThemeState(prev => prev === 'light' ? 'dark' : 'light')
+    setThemeState(prev => (prev === 'light' ? 'dark' : 'light'))
   }, [])
 
   return {
     theme,
     toggleTheme,
-    setTheme
+    setTheme,
   }
-} 
+}

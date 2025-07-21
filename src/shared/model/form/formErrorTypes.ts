@@ -1,4 +1,4 @@
 export enum FormErrorType {
-    Manual = 'manual',
-    Server = 'server',
+  Manual = 'manual',
+  Server = 'server',
 }

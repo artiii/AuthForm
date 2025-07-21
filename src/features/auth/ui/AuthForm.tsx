@@ -13,7 +13,7 @@ export const AuthForm = () => {
     <div className={styles.authFormContainer}>
       <form onSubmit={onSubmit} className={styles.authForm} noValidate>
         <h2 className={styles.authTitle}>Sign In</h2>
-        
+
         <div className={styles.formField}>
           <Input
             label="Email"
@@ -40,7 +40,9 @@ export const AuthForm = () => {
 
         <Button
           type="submit"
-          variant={isSubmitting ? ButtonVariant.DISABLED : ButtonVariant.PRIMARY}
+          variant={
+            isSubmitting ? ButtonVariant.DISABLED : ButtonVariant.PRIMARY
+          }
           disabled={isSubmitting}
           className={styles.submitButton}
         >
@@ -49,4 +51,4 @@ export const AuthForm = () => {
       </form>
     </div>
   )
-} 
+}

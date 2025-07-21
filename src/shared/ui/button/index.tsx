@@ -23,7 +23,7 @@ export const Button = ({
         styles.button,
         {
           [styles.buttonPrimary]: variant === ButtonVariant.PRIMARY,
-          [styles.buttonDisabled]: isDisabled
+          [styles.buttonDisabled]: isDisabled,
         },
         className
       )}

@@ -20,7 +20,9 @@ export const useAuth = (): UseAuthReturn => {
 
   const refreshUser = useCallback(async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
       setUser(user)
     } catch (error) {
       console.error('Error refreshing user:', error)
@@ -50,19 +52,19 @@ export const useAuth = (): UseAuthReturn => {
   useEffect(() => {
     refreshUser()
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        if (event === AuthEvent.SIGNED_IN && session?.user) {
-          setUser(session.user)
-          setLoading(false)
-        } else if (event === AuthEvent.SIGNED_OUT) {
-          setUser(null)
-          setLoading(false)
-        } else if (event === AuthEvent.TOKEN_REFRESHED && session?.user) {
-          setUser(session.user)
-        }
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === AuthEvent.SIGNED_IN && session?.user) {
+        setUser(session.user)
+        setLoading(false)
+      } else if (event === AuthEvent.SIGNED_OUT) {
+        setUser(null)
+        setLoading(false)
+      } else if (event === AuthEvent.TOKEN_REFRESHED && session?.user) {
+        setUser(session.user)
       }
-    )
+    })
 
     return () => subscription.unsubscribe()
   }, [refreshUser])
@@ -71,6 +73,6 @@ export const useAuth = (): UseAuthReturn => {
     user,
     loading,
     signOut,
-    refreshUser
+    refreshUser,
   }
 }

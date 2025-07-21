@@ -1,10 +1,10 @@
 'use client'
 
-import { useAuth } from "@/shared/model/auth"
-import { Button } from "@/shared/ui/button"
-import { ButtonVariant } from "@/shared/model/ui"
-import Link from "next/link"
-import styles from "./styles.module.scss"
+import { useAuth } from '@/shared/model/auth'
+import { Button } from '@/shared/ui/button'
+import { ButtonVariant } from '@/shared/model/ui'
+import Link from 'next/link'
+import styles from './styles.module.scss'
 
 export default function Dashboard() {
   const { user, signOut } = useAuth()
@@ -21,7 +21,7 @@ export default function Dashboard() {
           {user?.email && (
             <span className={styles.userEmail}>{user.email}</span>
           )}
-          <Button 
+          <Button
             onClick={handleLogout}
             variant={ButtonVariant.PRIMARY}
             className={styles.logoutButton}
@@ -35,8 +35,9 @@ export default function Dashboard() {
         <div className={styles.welcomeCard}>
           <h2 className={styles.cardTitle}>Protected Content</h2>
           <p className={styles.cardDescription}>
-            This page is only accessible to authenticated users. 
-            The AuthGuard component automatically redirects unauthenticated users to the login page.
+            This page is only accessible to authenticated users. The AuthGuard
+            component automatically redirects unauthenticated users to the login
+            page.
           </p>
         </div>
 
@@ -48,4 +49,4 @@ export default function Dashboard() {
       </div>
     </div>
   )
-} 
+}

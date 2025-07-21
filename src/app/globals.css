@@ -1,22 +1,22 @@
 :root.light {
   --background: #f8f9fa;
   --foreground: #1a1a1a;
-  
+
   --text-primary: #1a1a1a;
   --text-secondary: #666666;
   --text-error: #e74c3c;
-  
+
   --border-primary: #e1e5e9;
   --border-focus: #007acc;
   --border-error: #e74c3c;
   --border-form: #e1e5e9;
-  
+
   --bg-button-primary: #007acc;
   --bg-button-primary-hover: #005fa3;
   --bg-button-disabled: #ccc;
   --bg-form: #ffffff;
   --bg-shadow: rgba(0, 0, 0, 0.1);
-  
+
   --text-button-primary: #ffffff;
   --text-button-disabled: #666;
 }
@@ -24,25 +24,25 @@
 :root.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
-  
+
   --text-primary: #ffffff;
   --text-secondary: #cccccc;
   --text-error: #ff6b6b;
-  
+
   --border-primary: #333;
   --border-focus: #4fc3f7;
   --border-error: #ff6b6b;
   --border-form: #333;
-  
+
   --bg-button-primary: #4fc3f7;
   --bg-button-primary-hover: #29b6f6;
   --bg-button-disabled: #555;
   --bg-form: #1a1a1a;
   --bg-shadow: rgba(0, 0, 0, 0.3);
-  
+
   --text-button-primary: #000000;
   --text-button-disabled: #aaa;
-  
+
   --input-bg: #2a2a2a;
   --input-text: #ffffff;
   --input-placeholder: #aaaaaa;
@@ -51,32 +51,34 @@
   --theme-toggle-border: rgba(255, 255, 255, 0.2);
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-hover: rgba(0, 0, 0, 0.4);
-  
-  --font-mono: var(--font-jetbrains-mono), 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+
+  --font-mono:
+    var(--font-jetbrains-mono), 'SF Mono', 'Monaco', 'Inconsolata',
+    'Roboto Mono', monospace;
 }
 
 :root {
   --background: #f8f9fa;
   --foreground: #1a1a1a;
-  
+
   --text-primary: #1a1a1a;
   --text-secondary: #666666;
   --text-error: #e74c3c;
-  
+
   --border-primary: #e1e5e9;
   --border-focus: #007acc;
   --border-error: #e74c3c;
   --border-form: #e1e5e9;
-  
+
   --bg-button-primary: #007acc;
   --bg-button-primary-hover: #005fa3;
   --bg-button-disabled: #ccc;
   --bg-form: #ffffff;
   --bg-shadow: rgba(0, 0, 0, 0.1);
-  
+
   --text-button-primary: #ffffff;
   --text-button-disabled: #666;
-  
+
   --input-bg: #ffffff;
   --input-text: #1a1a1a;
   --input-placeholder: #666666;
@@ -85,8 +87,10 @@
   --theme-toggle-border: rgba(0, 0, 0, 0.1);
   --shadow-light: rgba(0, 0, 0, 0.1);
   --shadow-hover: rgba(0, 0, 0, 0.15);
-  
-  --font-mono: var(--font-jetbrains-mono), 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+
+  --font-mono:
+    var(--font-jetbrains-mono), 'SF Mono', 'Monaco', 'Inconsolata',
+    'Roboto Mono', monospace;
 }
 
 html,
@@ -98,7 +102,13 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family:
+    var(--font-inter),
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    system-ui,
+    sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

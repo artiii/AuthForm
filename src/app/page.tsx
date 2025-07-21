@@ -1,10 +1,10 @@
 'use client'
 
-import { useAuth } from "@/shared/model/auth";
-import { Button } from "@/shared/ui/button";
-import { ButtonVariant } from "@/shared/model/ui";
-import Link from "next/link";
-import styles from "./styles.module.scss";
+import { useAuth } from '@/shared/model/auth'
+import { Button } from '@/shared/ui/button'
+import { ButtonVariant } from '@/shared/model/ui'
+import Link from 'next/link'
+import styles from './styles.module.scss'
 
 export default function Home() {
   const { user, signOut, loading } = useAuth()
@@ -24,9 +24,7 @@ export default function Home() {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.welcomeSection}>
-        <h1 className={styles.pageTitle}>
-          Welcome!
-        </h1>
+        <h1 className={styles.pageTitle}>Welcome!</h1>
         {user?.email && (
           <p className={styles.userInfo}>
             Logged in as: <span className={styles.userEmail}>{user.email}</span>
@@ -50,5 +48,5 @@ export default function Home() {
         </Button>
       </div>
     </div>
-  );
+  )
 }

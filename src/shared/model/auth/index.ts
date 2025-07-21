@@ -1,2 +1,2 @@
 export { useAuth } from './useAuth'
-export { AuthEvent } from './authTypes' 
+export { AuthEvent } from './authTypes'

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.next/
+out/
+
+# Environment files
+.env*
+
+# Generated files
+*.d.ts
+
+# Build outputs
+dist/
+build/
+
+# Lock files
+package-lock.json
+yarn.lock
+
+# Git
+.git/
+
+# IDE
+.vscode/
+.idea/ 

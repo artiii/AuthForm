@@ -2,6 +2,9 @@
 
 A simple authentication app built with Next.js and protected routes. Created to demonstrate modern auth patterns in React applications.
 
+# Deployed app to Vercel
+https://auth-form-orcin.vercel.app/login
+
 ## Requirements
 
 - **Node.js**: 18.17+ or newer

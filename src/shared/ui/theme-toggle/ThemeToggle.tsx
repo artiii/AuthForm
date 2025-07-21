@@ -7,7 +7,7 @@ export const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <button 
+    <button
       onClick={toggleTheme}
       className={styles.themeToggle}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
@@ -15,4 +15,4 @@ export const ThemeToggle = () => {
       {theme === 'light' ? '🌙' : '☀️'}
     </button>
   )
-} 
+}

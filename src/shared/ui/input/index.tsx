@@ -21,7 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className={clsx(
             styles.input,
             {
-              [styles.inputError]: error
+              [styles.inputError]: error,
             },
             className
           )}
@@ -38,4 +38,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 )
 
-Input.displayName = 'Input' 
+Input.displayName = 'Input'

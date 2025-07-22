@@ -1,7 +1,8 @@
 'use client'
 
-import { Input } from '@/shared/ui/input'
-import { Button } from '@/shared/ui/button'
+import { Input } from '@/shared/ui/Input'
+import { PasswordInput } from '@/shared/ui/PasswordInput'
+import { Button } from '@/shared/ui/Button'
 import { ButtonVariant } from '@/shared/model/ui'
 import { useSignIn } from '../model/useSignIn'
 import styles from './styles.module.scss'
@@ -27,9 +28,8 @@ export const AuthForm = () => {
         </div>
 
         <div className={styles.formField}>
-          <Input
+          <PasswordInput
             label="Password"
-            type="password"
             placeholder="Enter your password"
             autoComplete="current-password"
             {...register('password')}

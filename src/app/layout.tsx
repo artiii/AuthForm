@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import clsx from 'clsx'
-import { AuthGuard } from '@/shared/ui/auth-guard'
-import { ThemeToggle } from '@/shared/ui/theme-toggle'
+import { AuthGuard } from '@/shared/ui/AuthGuard'
+import { ThemeToggle } from '@/shared/ui/ThemeToggle'
 import './globals.css'
 
 const inter = Inter({

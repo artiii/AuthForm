@@ -1,0 +1,102 @@
+.passwordWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.passwordLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.passwordInputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordInput {
+  width: 100%;
+  padding: 8px 40px 8px 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--border-focus);
+  }
+
+  &::placeholder {
+    color: var(--input-placeholder);
+  }
+}
+
+.passwordInputError {
+  border-color: var(--border-error);
+}
+
+.toggleButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--hover-overlay);
+  }
+
+  &:focus {
+    outline: none;
+    color: var(--text-primary);
+    background-color: var(--hover-overlay);
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+}
+
+.eyeIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.passwordErrorMessage {
+  font-size: 12px;
+  color: var(--text-error);
+}
+
+:global(.dark) .passwordLabel {
+  color: var(--text-primary);
+}
+
+:global(.dark) .passwordInputError {
+  border-color: var(--border-error);
+}
+
+:global(.dark) .toggleButton {
+  color: var(--text-secondary);
+
+  &:hover,
+  &:focus {
+    color: var(--text-primary);
+    background-color: var(--hover-overlay);
+  }
+}

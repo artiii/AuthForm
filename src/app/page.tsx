@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuth } from '@/shared/model/auth'
-import { Button } from '@/shared/ui/button'
+import { Button } from '@/shared/ui/Button'
 import { ButtonVariant } from '@/shared/model/ui'
 import Link from 'next/link'
 import styles from './styles.module.scss'

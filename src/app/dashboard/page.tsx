@@ -1,13 +1,15 @@
 'use client'
 
-import { useAuth } from '@/shared/model/auth'
-import { Button } from '@/shared/ui/Button'
-import { ButtonVariant } from '@/shared/model/ui'
 import Link from 'next/link'
+import { useAuth } from '@/shared/model/auth'
+import { useTranslation } from '@/shared/model/i18n'
+import { ButtonVariant } from '@/shared/model/ui'
+import { Button } from '@/shared/ui/Button'
 import styles from './styles.module.scss'
 
 export default function Dashboard() {
   const { user, signOut } = useAuth()
+  const { t } = useTranslation()
 
   const handleLogout = async () => {
     await signOut()
@@ -16,7 +18,7 @@ export default function Dashboard() {
   return (
     <div className={styles.dashboardContainer}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Dashboard</h1>
+        <h1 className={styles.title}>{t('pages.dashboard.title')}</h1>
         <div className={styles.userSection}>
           {user?.email && (
             <span className={styles.userEmail}>{user.email}</span>
@@ -26,24 +28,24 @@ export default function Dashboard() {
             variant={ButtonVariant.PRIMARY}
             className={styles.logoutButton}
           >
-            Logout
+            {t('navigation.logout')}
           </Button>
         </div>
       </div>
 
       <div className={styles.content}>
         <div className={styles.welcomeCard}>
-          <h2 className={styles.cardTitle}>Protected Content</h2>
+          <h2 className={styles.cardTitle}>
+            {t('pages.dashboard.welcomeMessage')}
+          </h2>
           <p className={styles.cardDescription}>
-            This page is only accessible to authenticated users. The AuthGuard
-            component automatically redirects unauthenticated users to the login
-            page.
+            {t('pages.home.description')}
           </p>
         </div>
 
         <div className={styles.navigation}>
           <Link href="/" className={styles.navLink}>
-            ← Back to Home
+            ← {t('navigation.home')}
           </Link>
         </div>
       </div>

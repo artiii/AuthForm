@@ -1,7 +1,8 @@
 'use client'
 
-import { InputHTMLAttributes, forwardRef, useState, useCallback } from 'react'
+import { forwardRef, InputHTMLAttributes, useCallback, useState } from 'react'
 import clsx from 'clsx'
+import { useTranslation } from '@/shared/model/i18n'
 import { EyeIcon, EyeOffIcon } from '@/shared/ui/Icons'
 import styles from './styles.module.scss'
 
@@ -14,6 +15,7 @@ interface PasswordInputProps
 export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   ({ label, error, className = '', ...props }, ref) => {
     const [isVisible, setIsVisible] = useState(false)
+    const { t } = useTranslation()
 
     const toggleVisibility = useCallback(() => {
       setIsVisible(prev => !prev)
@@ -44,7 +46,11 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             type="button"
             className={styles.toggleButton}
             onClick={toggleVisibility}
-            aria-label={isVisible ? 'Hide password' : 'Show password'}
+            aria-label={
+              isVisible 
+                ? t('auth.hidePassword') || 'Hide password'
+                : t('auth.showPassword') || 'Show password'
+            }
             aria-pressed={isVisible}
             tabIndex={-1}
           >

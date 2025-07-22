@@ -1,18 +1,20 @@
 'use client'
 
-import { useAuth } from '@/shared/model/auth'
-import { Button } from '@/shared/ui/Button'
-import { ButtonVariant } from '@/shared/model/ui'
 import Link from 'next/link'
+import { useAuth } from '@/shared/model/auth'
+import { useTranslation } from '@/shared/model/i18n'
+import { ButtonVariant } from '@/shared/model/ui'
+import { Button } from '@/shared/ui/Button'
 import styles from './styles.module.scss'
 
 export default function Home() {
   const { user, signOut, loading } = useAuth()
+  const { t } = useTranslation()
 
   if (loading) {
     return (
       <div className={styles.pageContainer}>
-        <div className={styles.loading}>Loading...</div>
+        <div className={styles.loading}>{t('common.loading')}</div>
       </div>
     )
   }
@@ -24,17 +26,18 @@ export default function Home() {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.welcomeSection}>
-        <h1 className={styles.pageTitle}>Welcome!</h1>
+        <h1 className={styles.pageTitle}>{t('common.welcome')}!</h1>
         {user?.email && (
           <p className={styles.userInfo}>
-            Logged in as: <span className={styles.userEmail}>{user.email}</span>
+            {t('pages.dashboard.userInfo')}:{' '}
+            <span className={styles.userEmail}>{user.email}</span>
           </p>
         )}
       </div>
 
       <div className={styles.navigationSection}>
         <Link href="/dashboard" className={styles.navLink}>
-          Go to Dashboard →
+          {t('pages.home.goToDashboard')} →
         </Link>
       </div>
 
@@ -44,7 +47,7 @@ export default function Home() {
           variant={ButtonVariant.PRIMARY}
           className={styles.logoutButton}
         >
-          Logout
+          {t('navigation.logout')}
         </Button>
       </div>
     </div>

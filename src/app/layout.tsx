@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import clsx from 'clsx'
+import { I18nProvider } from '@/shared/lib/i18n/provider'
 import { AuthGuard } from '@/shared/ui/AuthGuard'
-import { ThemeToggle } from '@/shared/ui/ThemeToggle'
+import { Header } from '@/shared/ui/Header'
+import { THEMES } from '@/shared/model/theme'
+import styles from './layout.module.scss'
 import './globals.css'
 
 const inter = Inter({
@@ -28,14 +31,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className={THEMES.LIGHT}>
       <body className={clsx(inter.variable, jetbrainsMono.variable)}>
-        <ThemeToggle />
-        <AuthGuard
-          fallback={<div className="loading-fallback">Loading...</div>}
-        >
-          {children}
-        </AuthGuard>
+        <I18nProvider>
+          <div className={styles.appWrapper}>
+            <Header />
+            <main className={styles.mainContent}>
+              <AuthGuard
+                fallback={<div className={styles.loadingFallback}>Loading...</div>}
+              >
+                {children}
+              </AuthGuard>
+            </main>
+          </div>
+        </I18nProvider>
       </body>
     </html>
   )

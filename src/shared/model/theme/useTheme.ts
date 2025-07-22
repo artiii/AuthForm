@@ -1,8 +1,16 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
-export type Theme = 'light' | 'dark'
+export const THEME_LIGHT = 'light' as const
+export const THEME_DARK = 'dark' as const
+
+export const THEMES = {
+  LIGHT: THEME_LIGHT,
+  DARK: THEME_DARK,
+} as const
+
+export type Theme = typeof THEME_LIGHT | typeof THEME_DARK
 
 interface UseThemeReturn {
   theme: Theme
@@ -11,18 +19,19 @@ interface UseThemeReturn {
 }
 
 export const useTheme = (): UseThemeReturn => {
-  const [theme, setThemeState] = useState<Theme>('light')
+  const [theme, setThemeState] = useState<Theme>(THEMES.LIGHT)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme
-    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+    if (savedTheme && (savedTheme === THEMES.LIGHT || savedTheme === THEMES.DARK)) {
       setThemeState(savedTheme)
     }
   }, [])
 
   useEffect(() => {
+    // todo
     const root = document.documentElement
-    root.classList.remove('light', 'dark')
+    root.classList.remove(THEMES.LIGHT, THEMES.DARK)
     root.classList.add(theme)
     localStorage.setItem('theme', theme)
   }, [theme])
@@ -32,7 +41,7 @@ export const useTheme = (): UseThemeReturn => {
   }, [])
 
   const toggleTheme = useCallback(() => {
-    setThemeState(prev => (prev === 'light' ? 'dark' : 'light'))
+    setThemeState(prev => (prev === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT))
   }, [])
 
   return {

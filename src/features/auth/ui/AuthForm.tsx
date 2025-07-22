@@ -1,25 +1,27 @@
 'use client'
 
+import { useTranslation } from '@/shared/model/i18n'
+import { ButtonVariant } from '@/shared/model/ui'
+import { Button } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
 import { PasswordInput } from '@/shared/ui/PasswordInput'
-import { Button } from '@/shared/ui/Button'
-import { ButtonVariant } from '@/shared/model/ui'
 import { useSignIn } from '../model/useSignIn'
 import styles from './styles.module.scss'
 
 export const AuthForm = () => {
   const { register, errors, isSubmitting, onSubmit } = useSignIn()
+  const { t } = useTranslation()
 
   return (
     <div className={styles.authFormContainer}>
       <form onSubmit={onSubmit} className={styles.authForm} noValidate>
-        <h2 className={styles.authTitle}>Sign In</h2>
+        <h2 className={styles.authTitle}>{t('auth.signIn')}</h2>
 
         <div className={styles.formField}>
           <Input
-            label="Email"
+            label={t('auth.email')}
             type="email"
-            placeholder="Enter your email"
+            placeholder={t('auth.enterEmail')}
             autoComplete="email"
             {...register('email')}
             error={errors.email?.message}
@@ -29,8 +31,8 @@ export const AuthForm = () => {
 
         <div className={styles.formField}>
           <PasswordInput
-            label="Password"
-            placeholder="Enter your password"
+            label={t('auth.password')}
+            placeholder={t('auth.enterPassword')}
             autoComplete="current-password"
             {...register('password')}
             error={errors.password?.message}
@@ -46,7 +48,7 @@ export const AuthForm = () => {
           disabled={isSubmitting}
           className={styles.submitButton}
         >
-          {isSubmitting ? 'Signing in...' : 'Sign In'}
+          {isSubmitting ? t('auth.signingIn') : t('auth.signIn')}
         </Button>
       </form>
     </div>

@@ -83,20 +83,4 @@
   color: var(--text-error);
 }
 
-:global(.dark) .passwordLabel {
-  color: var(--text-primary);
-}
 
-:global(.dark) .passwordInputError {
-  border-color: var(--border-error);
-}
-
-:global(.dark) .toggleButton {
-  color: var(--text-secondary);
-
-  &:hover,
-  &:focus {
-    color: var(--text-primary);
-    background-color: var(--hover-overlay);
-  }
-}

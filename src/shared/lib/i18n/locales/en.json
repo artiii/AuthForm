@@ -1,0 +1,47 @@
+{
+  "auth": {
+    "signIn": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "signingIn": "Signing in...",
+    "enterEmail": "Enter your email",
+    "enterPassword": "Enter your password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  },
+  "validation": {
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "passwordRequired": "Password is required",
+    "passwordMinLength": "Password must be at least 6 characters"
+  },
+  "common": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "loading": "Loading...",
+    "error": "Error",
+    "welcome": "Welcome"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "home": "Home"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toggle": "Switch to {mode} mode"
+  },
+  "pages": {
+    "home": {
+      "title": "Auth Form App",
+      "description": "Welcome to the authentication application",
+      "goToDashboard": "Go to Dashboard"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcomeMessage": "Welcome to your dashboard!",
+      "userInfo": "User Information"
+    }
+  }
+} 

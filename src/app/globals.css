@@ -1,3 +1,35 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: var(--foreground);
+  background: var(--background);
+  font-family:
+    var(--font-inter),
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    system-ui,
+    sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#__next {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 :root.light {
   --background: #f8f9fa;
   --foreground: #1a1a1a;
@@ -51,68 +83,6 @@
   --theme-toggle-border: rgba(255, 255, 255, 0.2);
   --shadow-light: rgba(0, 0, 0, 0.3);
   --shadow-hover: rgba(0, 0, 0, 0.4);
-
-  --font-mono:
-    var(--font-jetbrains-mono), 'SF Mono', 'Monaco', 'Inconsolata',
-    'Roboto Mono', monospace;
-}
-
-:root {
-  --background: #f8f9fa;
-  --foreground: #1a1a1a;
-
-  --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --text-error: #e74c3c;
-
-  --border-primary: #e1e5e9;
-  --border-focus: #007acc;
-  --border-error: #e74c3c;
-  --border-form: #e1e5e9;
-
-  --bg-button-primary: #007acc;
-  --bg-button-primary-hover: #005fa3;
-  --bg-button-disabled: #ccc;
-  --bg-form: #ffffff;
-  --bg-shadow: rgba(0, 0, 0, 0.1);
-
-  --text-button-primary: #ffffff;
-  --text-button-disabled: #666;
-
-  --input-bg: #ffffff;
-  --input-text: #1a1a1a;
-  --input-placeholder: #666666;
-  --hover-overlay: rgba(0, 122, 204, 0.1);
-  --theme-toggle-bg: rgba(255, 255, 255, 0.9);
-  --theme-toggle-border: rgba(0, 0, 0, 0.1);
-  --shadow-light: rgba(0, 0, 0, 0.1);
-  --shadow-hover: rgba(0, 0, 0, 0.15);
-
-  --font-mono:
-    var(--font-jetbrains-mono), 'SF Mono', 'Monaco', 'Inconsolata',
-    'Roboto Mono', monospace;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family:
-    var(--font-inter),
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    system-ui,
-    sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 * {
@@ -124,13 +94,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.loading-fallback {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: var(--text-secondary);
-  font-size: 16px;
 }

@@ -1,48 +1,61 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
-
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 import { supabase } from '@/shared/lib/supabaseClient'
 import { FormErrorType } from '@/shared/model/form/formErrorTypes'
+import { useTranslation } from '@/shared/model/i18n'
 
-export const signInSchema = z.object({
-  email: z
-    .email({ error: 'Email is not correct' })
-    .trim()
-    .toLowerCase()
-    .nonempty('Email is required')
-    .max(128, 'Email is too long'),
+const createSignInSchema = (t: (key: string) => string) =>
+  z.object({
+    email: z
+      .email(t('validation.emailInvalid'))
+      .trim()
+      .toLowerCase()
+      .min(1, t('validation.emailRequired'))
+      .max(128, 'Email is too long'),
 
-  password: z
-    .string()
-    .trim()
-    .nonempty('Password is required')
-    .min(6, 'Password must be at least 6 characters')
-    .max(128, 'Password is too long')
-    .regex(
-      /^(?=.*[A-Za-z])(?=.*\d).+$/,
-      'Password must contain letters and numbers'
-    ),
-})
+    password: z
+      .string()
+      .trim()
+      .min(1, t('validation.passwordRequired'))
+      .min(6, t('validation.passwordMinLength'))
+      .max(128, 'Password is too long'),
+  })
 
-export type SignInFormData = z.infer<typeof signInSchema>
+export type SignInFormData = {
+  email: string
+  password: string
+}
 
 export const useSignIn = () => {
   const router = useRouter()
+  const { t, locale } = useTranslation()
+
+  const signInSchema = useMemo(() => createSignInSchema(t), [t])
+
+  const form = useForm<SignInFormData>({
+    resolver: zodResolver(signInSchema),
+    defaultValues: { email: '', password: '' },
+  })
+
   const {
     register,
     handleSubmit,
     setError,
     setFocus,
+    getValues,
+    reset,
     formState: { errors, isSubmitting },
-  } = useForm<SignInFormData>({
-    resolver: zodResolver(signInSchema),
-    defaultValues: { email: '', password: '' },
-  })
+  } = form
+
+  useEffect(() => {
+    const currentValues = getValues()
+    reset(currentValues)
+  }, [locale, reset, getValues])
 
   const onSubmit = useCallback(
     async (data: SignInFormData) => {

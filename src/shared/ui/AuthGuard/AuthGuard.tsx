@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode, useEffect, useMemo } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useAuth } from '../../model/auth'
 
 interface AuthGuardProps {

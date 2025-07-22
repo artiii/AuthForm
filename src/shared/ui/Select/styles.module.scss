@@ -1,0 +1,43 @@
+.selectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--theme-toggle-bg);
+  border: 1px solid var(--theme-toggle-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--hover-overlay);
+    border-color: var(--border-focus);
+  }
+
+  &:focus-within {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.1);
+  }
+}
+
+.startAdornment {
+  font-size: 16px;
+  line-height: 1;
+  margin-right: 8px;
+  pointer-events: none;
+}
+
+.select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  min-width: 80px;
+
+  &:focus {
+    outline: none;
+  }
+}
